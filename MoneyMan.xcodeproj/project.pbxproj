@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		EB244B4B29DF613F0076C712 /* MoneyManApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B4A29DF613F0076C712 /* MoneyManApp.swift */; };
-		EB244B4D29DF613F0076C712 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B4C29DF613F0076C712 /* ContentView.swift */; };
+		EB244B4D29DF613F0076C712 /* BankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B4C29DF613F0076C712 /* BankAccountView.swift */; };
 		EB244B4F29DF61410076C712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB244B4E29DF61410076C712 /* Assets.xcassets */; };
 		EB244B5229DF61410076C712 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB244B5129DF61410076C712 /* Preview Assets.xcassets */; };
+		EB244B5929DF75C50076C712 /* BankAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B5829DF75C50076C712 /* BankAccountController.swift */; };
+		EB244B5B29DF75D40076C712 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B5A29DF75D40076C712 /* Model.swift */; };
+		EB244B6029DF77740076C712 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B5F29DF77740076C712 /* BankAccount.swift */; };
+		EB244B7F29E07F290076C712 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B7E29E07F290076C712 /* TransactionView.swift */; };
+		EB244B8129E07FAD0076C712 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B8029E07FAD0076C712 /* TransactionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EB244B4729DF613F0076C712 /* MoneyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB244B4A29DF613F0076C712 /* MoneyManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManApp.swift; sourceTree = "<group>"; };
-		EB244B4C29DF613F0076C712 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB244B4C29DF613F0076C712 /* BankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountView.swift; sourceTree = "<group>"; };
 		EB244B4E29DF61410076C712 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB244B5129DF61410076C712 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EB244B5829DF75C50076C712 /* BankAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountController.swift; sourceTree = "<group>"; };
+		EB244B5A29DF75D40076C712 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EB244B5F29DF77740076C712 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
+		EB244B7E29E07F290076C712 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		EB244B8029E07FAD0076C712 /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,11 @@
 		EB244B4929DF613F0076C712 /* MoneyMan */ = {
 			isa = PBXGroup;
 			children = (
+				EB244B7D29E07EB70076C712 /* Views */,
+				EB244B5E29DF77640076C712 /* Data */,
+				EB244B5D29DF77470076C712 /* Controllers */,
+				EB244B5C29DF77380076C712 /* Models */,
 				EB244B4A29DF613F0076C712 /* MoneyManApp.swift */,
-				EB244B4C29DF613F0076C712 /* ContentView.swift */,
 				EB244B4E29DF61410076C712 /* Assets.xcassets */,
 				EB244B5029DF61410076C712 /* Preview Content */,
 			);
@@ -65,6 +78,40 @@
 				EB244B5129DF61410076C712 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EB244B5C29DF77380076C712 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB244B5A29DF75D40076C712 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB244B5D29DF77470076C712 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB244B5829DF75C50076C712 /* BankAccountController.swift */,
+				EB244B8029E07FAD0076C712 /* TransactionController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EB244B5E29DF77640076C712 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EB244B5F29DF77740076C712 /* BankAccount.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EB244B7D29E07EB70076C712 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB244B4C29DF613F0076C712 /* BankAccountView.swift */,
+				EB244B7E29E07F290076C712 /* TransactionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB244B4D29DF613F0076C712 /* ContentView.swift in Sources */,
+				EB244B5929DF75C50076C712 /* BankAccountController.swift in Sources */,
+				EB244B4D29DF613F0076C712 /* BankAccountView.swift in Sources */,
+				EB244B6029DF77740076C712 /* BankAccount.swift in Sources */,
 				EB244B4B29DF613F0076C712 /* MoneyManApp.swift in Sources */,
+				EB244B5B29DF75D40076C712 /* Model.swift in Sources */,
+				EB244B7F29E07F290076C712 /* TransactionView.swift in Sources */,
+				EB244B8129E07FAD0076C712 /* TransactionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +327,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +357,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

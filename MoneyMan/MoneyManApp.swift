@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+enum ViewState {
+	case BankAccountSelector, TransactionSelector
+}
+var viewState = ViewState.BankAccountSelector
+
 @main
 struct MoneyManApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	
+	var body: some Scene {
+		WindowGroup {
+			BankAccountView()
+		}
+	}
 }
