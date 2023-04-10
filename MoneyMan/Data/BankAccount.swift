@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-struct TransactionDescriptor {
+struct TransactionDescriptor: Codable {
 	var name: String
 	var value = Float()
 }
 
-struct BankAccount {
+struct BankAccount: Codable {
 	var name: String
-	@State var transactions: [Date:TransactionDescriptor] = [:]
+	var transactions: [TransactionDescriptor] = []
 }
-
-var bankAccounts: [BankAccount] = [BankAccount(name: "test1"),BankAccount(name: "test2")]

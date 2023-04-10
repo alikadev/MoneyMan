@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		EB244B4729DF613F0076C712 /* MoneyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB244B4A29DF613F0076C712 /* MoneyManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManApp.swift; sourceTree = "<group>"; };
-		EB244B4C29DF613F0076C712 /* BankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountView.swift; sourceTree = "<group>"; };
+		EB244B4C29DF613F0076C712 /* BankAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BankAccountView.swift; sourceTree = "<group>"; };
 		EB244B4E29DF61410076C712 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB244B5129DF61410076C712 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB244B5829DF75C50076C712 /* BankAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountController.swift; sourceTree = "<group>"; };

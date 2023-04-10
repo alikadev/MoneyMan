@@ -10,8 +10,12 @@ import Foundation
 struct TransactionController
 {
 	var bankAccount : BankAccount
+	var bankAccounts : [BankAccount]
+	var shouldGoBack = false
 	
-	init(name : String) {
+	init(bankAccounts : inout [BankAccount], name : String)
+	{
+		self.bankAccounts = bankAccounts
 		for bankAccount in bankAccounts
 		{
 			if(bankAccount.name == name)
@@ -22,5 +26,23 @@ struct TransactionController
 		}
 		self.bankAccount = BankAccount(name: name)
 		bankAccounts.append(self.bankAccount)
+	}
+	
+	mutating func go_back()
+	{
+		print("TransactionView request to go back")
+		shouldGoBack = true
+	}
+	
+	mutating func remove_bank_account()
+	{
+		print("TransactionView request to delete BankAccount")
+		if !Model.delete_bank_acocunt(bankAccounts: &bankAccounts, name: bankAccount.name)
+		{
+			print("Fail to remove bank account")
+			return
+		}
+		
+		shouldGoBack = true
 	}
 }

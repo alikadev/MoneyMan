@@ -14,7 +14,6 @@ var viewState = ViewState.BankAccountSelector
 
 @main
 struct MoneyManApp: App {
-	
 	var body: some Scene {
 		WindowGroup {
 			BankAccountView()

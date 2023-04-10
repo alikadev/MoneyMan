@@ -9,25 +9,22 @@ import SwiftUI
 
 struct BankAccountController
 {
-	func addBankAccount(name: String) -> Void
+	var bankAccounts: [BankAccount] = []
+	
+	mutating func add_bank_account(name: String) -> Void
 	{
-		print("Request add bank account with name",name)
-		bankAccounts.append(BankAccount(name:name))
+		print("BankAccountView request to add a BankAccount")
+		if !Model.add_bank_account(bankAccounts: &bankAccounts, name: name)
+		{
+			print("Fail to add bank account")
+		}
 	}
 	
-	func loadBankAccount(name: String) -> Void
+	func get_bank_account_balance(name: String) -> Float
 	{
-		print("Request load account with name",name)
-		for account in bankAccounts
-		{
-			if(account.name == name)
-			{
-				viewState = ViewState.TransactionSelector
-				print("View is loaded ", viewState)
-				return
-			}
-		}
-		print("E: Fail to found account")
+		print("BankAccountView request to get BankAccount balance")
+		return Model.calculate_bank_account_balance(bankAccount: Model.get_bank_account(bankAccounts: bankAccounts, name: name) ?? BankAccount(name: "No Bank Account"))
 	}
 }
+
 
