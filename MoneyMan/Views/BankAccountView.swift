@@ -84,7 +84,6 @@ struct BankAccountView: View {
 		}
 		.alert("Bank account name", isPresented: $popupGetName, actions: {
 			TextField("Account name", text: $accountName)
-				.disableAutocorrection(true)
 			Button("Create") {
 				controller.add_bank_account(name: accountName);accountName=""
 			}

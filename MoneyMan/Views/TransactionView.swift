@@ -19,6 +19,9 @@ struct TransactionView: View {
 	let backColor1 : Color = Color(.systemBackground)
 	let backColor2 : Color = Color(.systemGray6)
 	let fontSize : CGFloat = 20
+	let dateSize : CGFloat = 12
+	let transactionCountSize : CGFloat = 15
+	let titleSize : CGFloat = 25
 	let createFontSize : CGFloat = 25
 	
 	var body: some View {
@@ -41,9 +44,17 @@ struct TransactionView: View {
 						result in Button {
 							controller.go_back()
 						} label: {
-							Text("\(result.name)")
-							Spacer()
-							Text(String(format: "%0.2f", result.value))
+							HStack(alignment: .top)
+							{
+								Text("\(result.name)")
+								Spacer()
+								VStack(alignment: .trailing) {
+									Text(String(format: "%0.2f $", result.value))
+									Text(result.date, style: .date)
+										.font(.system(size: dateSize, weight: .regular))
+								}
+							}
+							
 						}
 						.font(.system(size: fontSize, weight: .bold))
 						.frame(maxWidth: .infinity)
@@ -57,6 +68,7 @@ struct TransactionView: View {
 					}
 					Spacer()
 				}
+				.padding(outsideMagin)
 				NavigationLink("", destination: BankAccountView(), isActive: $controller.shouldGoBack)
 			}
 			.toolbar {
@@ -70,8 +82,17 @@ struct TransactionView: View {
 				}
 				ToolbarItem(placement: .principal)
 				{
-					Text(controller.bankAccount.name)
-						.font(.system(size: fontSize, weight: .semibold))
+					VStack
+					{
+						Text(controller.bankAccount.name)
+							.font(.system(size: titleSize, weight: .bold))
+						HStack
+						{
+							Text(String(controller.bankAccount.transactions.count))
+							Text("transaction" + (controller.bankAccount.transactions.count > 1 ? "s" : ""))
+						}
+						.font(.system(size: transactionCountSize))
+					}
 				}
 				ToolbarItem(placement: .confirmationAction)
 				{
@@ -105,7 +126,6 @@ struct TransactionView: View {
 			}
 			.alert("Rename Bank Account name", isPresented: $popupRenameBankAccount, actions: {
 				TextField("Bank Account name", text: $bankAccountName)
-					.disableAutocorrection(true)
 				Button("Rename") {
 					controller.rename_bank_account(name: bankAccountName);
 					bankAccountName=""
@@ -135,7 +155,9 @@ struct TransactionView: View {
 
 
 struct TransactionView_Previews: PreviewProvider {
-	static var bankAccounts : [BankAccount] = [BankAccount(name: "Example", transactions: [TransactionDescriptor(name: "example1",value: 200.0),TransactionDescriptor(name: "example2",value: 241.2)])]
+	static var bankAccounts : [BankAccount] = [BankAccount(name: "Example", transactions: [
+		TransactionDescriptor(name: "Lotterie", value: 20, date: Date(timeIntervalSinceNow: -86400), comment: "Gagné à la lotterie"),
+		TransactionDescriptor(name: "Achat pro", value: -15.95, comment: "Achat d'une souris")])]
 	static var previews: some View {
 		TransactionView.init(controller: TransactionController(bankAccounts: &bankAccounts,name: "Example"))
 	}
