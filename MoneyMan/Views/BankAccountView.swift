@@ -68,7 +68,7 @@ struct BankAccountView: View {
 				{
 					Text("Bank Account" + (controller.bankAccounts.count > 1 ? "s" : ""))
 						.font(.system(size: fontSize, weight: .semibold))
-						
+					
 				}
 				
 				ToolbarItem(placement: .confirmationAction)
@@ -79,17 +79,17 @@ struct BankAccountView: View {
 					} label: {
 						Image(systemName: "plus")
 					}
-					.alert("Bank account name", isPresented: $popupGetName, actions: {
-						TextField("Account name", text: $accountName)
-							.disableAutocorrection(true)
-						Button("Create") {
-							controller.add_bank_account(name: accountName);accountName=""
-						}
-						Button("Cancel", role: .cancel, action: {popupGetName = false})
-					})
 				}
 			}
 		}
+		.alert("Bank account name", isPresented: $popupGetName, actions: {
+			TextField("Account name", text: $accountName)
+				.disableAutocorrection(true)
+			Button("Create") {
+				controller.add_bank_account(name: accountName);accountName=""
+			}
+			Button("Cancel", role: .cancel, action: {popupGetName = false})
+		})
 		.background(Rectangle()
 			.ignoresSafeArea()
 			.foregroundColor(backColor1))

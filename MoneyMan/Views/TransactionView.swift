@@ -10,6 +10,8 @@ import SwiftUI
 struct TransactionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@State var controller : TransactionController
+	@State var popupRenameBankAccount = false
+	@State var bankAccountName = ""
 	
 	let shadowSize : CGFloat = 2
 	let margin : CGFloat = 2
@@ -62,7 +64,6 @@ struct TransactionView: View {
 				{
 					Button {
 						controller.go_back()
-						
 					} label: {
 						Image(systemName: "chevron.backward")
 					}
@@ -84,6 +85,7 @@ struct TransactionView: View {
 						}
 						Button()
 						{
+							popupRenameBankAccount = true
 						} label: {
 							Text("Rename")
 							Spacer()
@@ -101,6 +103,17 @@ struct TransactionView: View {
 					}
 				}
 			}
+			.alert("Rename Bank Account name", isPresented: $popupRenameBankAccount, actions: {
+				TextField("Bank Account name", text: $bankAccountName)
+					.disableAutocorrection(true)
+				Button("Rename") {
+					controller.rename_bank_account(name: bankAccountName);
+					bankAccountName=""
+				}
+				Button("Cancel", role: .cancel, action: {
+					popupRenameBankAccount = false
+				})
+			})
 		}
 		.background(
 			Rectangle()

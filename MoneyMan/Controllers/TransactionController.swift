@@ -34,6 +34,13 @@ struct TransactionController
 		shouldGoBack = true
 	}
 	
+	mutating func rename_bank_account(name: String)
+	{
+		print("TransactionView request to rename BankAccount to",name)
+		Model.rename_bank_account(bankAccounts: &bankAccounts, oldName: bankAccount.name, newName: name)
+		bankAccount.name = name
+	}
+	
 	mutating func remove_bank_account()
 	{
 		print("TransactionView request to delete BankAccount")

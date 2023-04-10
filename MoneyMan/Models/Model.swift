@@ -77,6 +77,22 @@ class Model
 		return nil
 	}
 	
+	static func rename_bank_account(bankAccounts: inout [BankAccount], oldName: String, newName: String) -> Void
+	{
+		for i in 0...bankAccounts.count {
+			if(bankAccounts[i].name == oldName)
+			{
+				bankAccounts[i].name = newName
+				if !Model.save_bank_accounts(bankAccounts: bankAccounts) {
+					print("Fail to save bank account state")
+				}
+				print(bankAccounts)
+				return
+			}
+		}
+		print("Fail to found bank account")
+	}
+	
 	static func calculate_bank_account_balance(bankAccount: BankAccount) -> Float
 	{
 		var val : Float = 0
