@@ -13,6 +13,7 @@ struct BankAccountView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@State var popupGetName = false
 	@State var accountName = String()
+	@State var shouldOpenBankAccount = false
 	
 	let shadowSize : CGFloat = 2
 	let margin : CGFloat = 2
@@ -25,42 +26,47 @@ struct BankAccountView: View {
 	var body: some View {
 		NavigationView // View
 		{
-			VStack // Main Content
+			ScrollView
 			{
-				HStack {Spacer()}
-					.background(Rectangle()
-						.shadow(radius: shadowSize)
-						.foregroundColor(backColor2)
-						.ignoresSafeArea())
-				
-				VStack // Accounts
+				VStack // Main Content
 				{
-					// Each account
-					ForEach(
-						controller.bankAccounts,
-						id: \.name)
-					{
-						result in NavigationLink{
-							TransactionView(controller: TransactionController(bankAccounts: &controller.bankAccounts, name: "\(result.name)"))
-						} label: {
-							Text("\(result.name)")
-							Spacer()
-							Text(String(format: "%0.2f $", controller.get_bank_account_balance(name: "\(result.name)")))
-						}
-						.font(.system(size: fontSize, weight: .bold))
-						.frame(maxWidth: .infinity)
-						.padding()
-						.foregroundColor(getFontColor())
+					HStack {Spacer()}
 						.background(Rectangle()
+							.shadow(radius: shadowSize)
 							.foregroundColor(backColor2)
-							.cornerRadius(10)
-							.shadow(radius: shadowSize))
-						.foregroundColor(getFontColor())
+							.ignoresSafeArea())
+					
+					VStack // Accounts
+					{
+						// Each account
+						ForEach(
+							controller.bankAccounts,
+							id: \.name)
+						{
+							result in Button {
+								accountName = result.name
+								shouldOpenBankAccount = true
+							} label: {
+								Text("\(result.name)")
+								Spacer()
+								Text(String(format: "%0.2f $", controller.get_bank_account_balance(name: "\(result.name)")))
+							}
+							.font(.system(size: fontSize, weight: .bold))
+							.frame(maxWidth: .infinity)
+							.padding()
+							.foregroundColor(getFontColor())
+							.background(Rectangle()
+								.foregroundColor(backColor2)
+								.cornerRadius(10)
+								.shadow(radius: shadowSize))
+							.foregroundColor(getFontColor())
+						}
 					}
+					.padding(outsideMagin)
+					
+					Spacer()
 				}
-				.padding(outsideMagin)
-				
-				Spacer()
+				NavigationLink("", destination: TransactionView(controller: TransactionController(bankAccounts: &controller.bankAccounts, name: accountName)), isActive: $shouldOpenBankAccount)
 			}
 			.toolbar // Toolbar
 			{

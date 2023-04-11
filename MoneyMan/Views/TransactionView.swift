@@ -27,48 +27,51 @@ struct TransactionView: View {
 	var body: some View {
 		NavigationView // View
 		{
-			VStack // View Content
+			ScrollView
 			{
-				HStack {Spacer()}
-					.background(Rectangle()
-						.shadow(radius: shadowSize)
-						.foregroundColor(backColor2)
-						.ignoresSafeArea())
-				
-				VStack // Main View
+			VStack // View Content
 				{
-					ForEach(
-						controller.bankAccount.transactions,
-						id: \.name)
-					{
-						result in Button {
-							controller.go_back()
-						} label: {
-							HStack(alignment: .top)
-							{
-								Text("\(result.name)")
-								Spacer()
-								VStack(alignment: .trailing) {
-									Text(String(format: "%0.2f $", result.value))
-									Text(result.date, style: .date)
-										.font(.system(size: dateSize, weight: .regular))
-								}
-							}
-							
-						}
-						.font(.system(size: fontSize, weight: .bold))
-						.frame(maxWidth: .infinity)
-						.padding()
-						.foregroundColor(getFontColor())
+					HStack {Spacer()}
 						.background(Rectangle()
+							.shadow(radius: shadowSize)
 							.foregroundColor(backColor2)
-							.cornerRadius(10)
-							.shadow(radius: shadowSize))
-						.foregroundColor(getFontColor())
+							.ignoresSafeArea())
+					
+					VStack // Main View
+					{
+						ForEach(
+							controller.bankAccount.transactions,
+							id: \.name)
+						{
+							result in Button {
+								controller.go_back()
+							} label: {
+								HStack(alignment: .top)
+								{
+									Text("\(result.name)")
+									Spacer()
+									VStack(alignment: .trailing) {
+										Text(String(format: "%0.2f $", result.value))
+										Text(result.date, style: .date)
+											.font(.system(size: dateSize, weight: .regular))
+									}
+								}
+								
+							}
+							.font(.system(size: fontSize, weight: .bold))
+							.frame(maxWidth: .infinity)
+							.padding()
+							.foregroundColor(getFontColor())
+							.background(Rectangle()
+								.foregroundColor(backColor2)
+								.cornerRadius(10)
+								.shadow(radius: shadowSize))
+							.foregroundColor(getFontColor())
+						}
+						Spacer()
 					}
-					Spacer()
+					.padding(outsideMagin)
 				}
-				.padding(outsideMagin)
 				NavigationLink("", destination: BankAccountView(), isActive: $controller.shouldGoBack)
 			}
 			.toolbar {
