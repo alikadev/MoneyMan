@@ -18,27 +18,61 @@ struct BankAccountView: View {
 	@State var popBankAccountBadName = false
 	@State var popBankAccountAlreadyExist = false
 	
+	@State var newTransaction = false
+	
 	@State var buffer = String()
 	
 	var body: some View {
 		NavigationView
 		{
-			ScrollView
-			{
-				VStack
+			ZStack {
+				ScrollView
 				{
-					ForEach(bankAccount.transactions)
-					{	transaction in
-						HStack
-						{
-							Text(transaction.name)
-							Spacer()
-							Text("TODO")
+					VStack
+					{
+						ForEach(bankAccount.transactions.sorted(by: {
+							$0.date > $1.date }))
+						{	transaction in
+							NavigationLink
+							{
+								TransactionView(transaction: transaction)
+							} label: {
+								HStack
+								{
+									Text(transaction.name)
+									Spacer()
+									VStack(alignment: .trailing)
+									{
+										Text(String(format: "%0.2f $", transaction.value))
+										Text(transaction.date, style: .date)
+											.font(.system(size: dateSize, weight: .regular))
+									}
+								}
+								.font(.system(size: fontSize, weight: .bold))
+								.frame(maxWidth: .infinity)
+								.padding()
+								.foregroundColor(get_font_color())
+								.background(Rectangle()
+									.foregroundColor(cBackground2)
+									.cornerRadius(10)
+									.shadow(radius: shadowSize))
+							}
 						}
-						.font(.system(size: fontSize, weight: .bold))
-						.frame(maxWidth: .infinity)
-						.padding()
-						.foregroundColor(get_font_color())
+					}
+					.padding()
+				}
+				VStack {
+					Spacer()
+					HStack{
+						Spacer()
+						NavigationLink
+						{
+							NewTransactionView(bankAccount: bankAccount)
+						} label: {
+							Image(systemName: "plus")
+						}
+						.font(.system(size: headSize))
+						.padding(8)
 						.background(Rectangle()
 							.foregroundColor(cBackground2)
 							.cornerRadius(10)
@@ -47,12 +81,12 @@ struct BankAccountView: View {
 				}
 				.padding()
 			}
-			
 			.toolbar
 			{
 				ToolbarItem(placement: .navigation)
 				{
 					Button {
+						global.objectWillChange.send()
 						presentationMode.wrappedValue.dismiss()
 					} label: {
 						Image(systemName: "chevron.backward")
@@ -88,19 +122,11 @@ struct BankAccountView: View {
 						}
 						Button()
 						{
-							popBankAccountRename = true
+							popBankAccountRename.toggle()
 						} label: {
 							Text("Rename")
 							Spacer()
 							Image(systemName: "pencil")
-						}
-						Button()
-						{
-							popNewTransaction = true
-						} label: {
-							Text("Add Transaction")
-							Spacer()
-							Image(systemName: "plus")
 						}
 					} label: {
 						Image(systemName: "ellipsis.circle")

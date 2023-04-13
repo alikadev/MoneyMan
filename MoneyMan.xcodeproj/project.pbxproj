@@ -15,6 +15,8 @@
 		EBC97B7529E77553009000D1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7429E77553009000D1 /* Global.swift */; };
 		EBC97B7729E77655009000D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7629E77655009000D1 /* MainView.swift */; };
 		EBC97B7929E77CEE009000D1 /* BankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7829E77CEE009000D1 /* BankAccountView.swift */; };
+		EBC97B7B29E83488009000D1 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7A29E83488009000D1 /* NewTransactionView.swift */; };
+		EBC97B7D29E85778009000D1 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7C29E85778009000D1 /* TransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		EBC97B7429E77553009000D1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EBC97B7629E77655009000D1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBC97B7829E77CEE009000D1 /* BankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountView.swift; sourceTree = "<group>"; };
+		EBC97B7A29E83488009000D1 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
+		EBC97B7C29E85778009000D1 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			children = (
 				EBC97B7629E77655009000D1 /* MainView.swift */,
 				EBC97B7829E77CEE009000D1 /* BankAccountView.swift */,
+				EBC97B7A29E83488009000D1 /* NewTransactionView.swift */,
+				EBC97B7C29E85778009000D1 /* TransactionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,10 +172,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC97B7929E77CEE009000D1 /* BankAccountView.swift in Sources */,
+				EBC97B7D29E85778009000D1 /* TransactionView.swift in Sources */,
 				EBC97B7529E77553009000D1 /* Global.swift in Sources */,
 				EBC97B7129E77449009000D1 /* Transaction.swift in Sources */,
 				EBC97B7329E774EE009000D1 /* BankAccount.swift in Sources */,
 				EBC97B7729E77655009000D1 /* MainView.swift in Sources */,
+				EBC97B7B29E83488009000D1 /* NewTransactionView.swift in Sources */,
 				EBC97B6129E773CE009000D1 /* MoneyManApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

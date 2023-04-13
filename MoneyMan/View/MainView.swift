@@ -32,7 +32,10 @@ struct MainView: View {
 						} label: {
 							Text(account.name)
 							Spacer()
-							Text("TODO")
+							Text(String(
+								format: "%0.2f $",
+								get_sum_of_transaction(account.transactions)
+							))
 						}
 						.font(.system(size: fontSize, weight: .bold))
 						.frame(maxWidth: .infinity)
@@ -51,11 +54,16 @@ struct MainView: View {
 			{
 				ToolbarItem(placement: .principal)
 				{
-					HStack {
-						Text(String(global.bankAccounts.count))
-						Text("Bank Account" + (global.bankAccounts.count > 1 ? "s" : ""))
+					VStack {
+						HStack {
+							
+							Text(String(global.bankAccounts.count))
+							Text("Bank Account" + (global.bankAccounts.count > 1 ? "s" : ""))
+						}
+						.font(.system(size: headSize, weight: .bold))
+						Text("Sum: "+String(format: "%0.2f $", get_sum_of_all()))
+							.font(.system(size: fontSize))
 					}
-					.font(.system(size: headSize, weight: .bold))
 					.monospacedDigit()
 				}
 				
@@ -125,11 +133,23 @@ struct MainView: View {
 	func get_font_color() -> Color {
 		return (colorScheme == .light ? Color.black : Color.white)
 	}
+	func get_sum_of_transaction(_ transactions: [Transaction]) -> Float {
+		var q = Float()
+		for tr in transactions {
+			q += tr.value
+		}
+		return q
+	}
+	func get_sum_of_all() -> Float {
+		var q = Float()
+		for ac in global.bankAccounts {
+			q += get_sum_of_transaction(ac.transactions)
+		}
+		return q
+	}
 }
 
 struct MainView_Previews: PreviewProvider {
-	@ObservedObject var global = globalState
-	
     static var previews: some View {
 		MainView()
     }
