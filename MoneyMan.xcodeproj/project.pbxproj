@@ -7,32 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB244B4B29DF613F0076C712 /* MoneyManApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B4A29DF613F0076C712 /* MoneyManApp.swift */; };
-		EB244B4D29DF613F0076C712 /* BankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B4C29DF613F0076C712 /* BankAccountView.swift */; };
-		EB244B4F29DF61410076C712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB244B4E29DF61410076C712 /* Assets.xcassets */; };
-		EB244B5229DF61410076C712 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB244B5129DF61410076C712 /* Preview Assets.xcassets */; };
-		EB244B5929DF75C50076C712 /* BankAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B5829DF75C50076C712 /* BankAccountController.swift */; };
-		EB244B5B29DF75D40076C712 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B5A29DF75D40076C712 /* Model.swift */; };
-		EB244B6029DF77740076C712 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B5F29DF77740076C712 /* BankAccount.swift */; };
-		EB244B7F29E07F290076C712 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B7E29E07F290076C712 /* TransactionView.swift */; };
-		EB244B8129E07FAD0076C712 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB244B8029E07FAD0076C712 /* TransactionController.swift */; };
+		EBC97B6129E773CE009000D1 /* MoneyManApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B6029E773CE009000D1 /* MoneyManApp.swift */; };
+		EBC97B6529E773CF009000D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC97B6429E773CF009000D1 /* Assets.xcassets */; };
+		EBC97B6829E773CF009000D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC97B6729E773CF009000D1 /* Preview Assets.xcassets */; };
+		EBC97B7129E77449009000D1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7029E77449009000D1 /* Transaction.swift */; };
+		EBC97B7329E774EE009000D1 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7229E774EE009000D1 /* BankAccount.swift */; };
+		EBC97B7529E77553009000D1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7429E77553009000D1 /* Global.swift */; };
+		EBC97B7729E77655009000D1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7629E77655009000D1 /* MainView.swift */; };
+		EBC97B7929E77CEE009000D1 /* BankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B7829E77CEE009000D1 /* BankAccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB244B4729DF613F0076C712 /* MoneyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB244B4A29DF613F0076C712 /* MoneyManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManApp.swift; sourceTree = "<group>"; };
-		EB244B4C29DF613F0076C712 /* BankAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BankAccountView.swift; sourceTree = "<group>"; };
-		EB244B4E29DF61410076C712 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EB244B5129DF61410076C712 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EB244B5829DF75C50076C712 /* BankAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountController.swift; sourceTree = "<group>"; };
-		EB244B5A29DF75D40076C712 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		EB244B5F29DF77740076C712 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
-		EB244B7E29E07F290076C712 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
-		EB244B8029E07FAD0076C712 /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
+		EBC97B5D29E773CE009000D1 /* MoneyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBC97B6029E773CE009000D1 /* MoneyManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManApp.swift; sourceTree = "<group>"; };
+		EBC97B6429E773CF009000D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBC97B6729E773CF009000D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EBC97B7029E77449009000D1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		EBC97B7229E774EE009000D1 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
+		EBC97B7429E77553009000D1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		EBC97B7629E77655009000D1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EBC97B7829E77CEE009000D1 /* BankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EB244B4429DF613F0076C712 /* Frameworks */ = {
+		EBC97B5A29E773CE009000D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,88 +40,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB244B3E29DF613F0076C712 = {
+		EBC97B5429E773CE009000D1 = {
 			isa = PBXGroup;
 			children = (
-				EB244B4929DF613F0076C712 /* MoneyMan */,
-				EB244B4829DF613F0076C712 /* Products */,
+				EBC97B5F29E773CE009000D1 /* MoneyMan */,
+				EBC97B5E29E773CE009000D1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EB244B4829DF613F0076C712 /* Products */ = {
+		EBC97B5E29E773CE009000D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB244B4729DF613F0076C712 /* MoneyMan.app */,
+				EBC97B5D29E773CE009000D1 /* MoneyMan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB244B4929DF613F0076C712 /* MoneyMan */ = {
+		EBC97B5F29E773CE009000D1 /* MoneyMan */ = {
 			isa = PBXGroup;
 			children = (
-				EB244B7D29E07EB70076C712 /* Views */,
-				EB244B5E29DF77640076C712 /* Data */,
-				EB244B5D29DF77470076C712 /* Controllers */,
-				EB244B5C29DF77380076C712 /* Models */,
-				EB244B4A29DF613F0076C712 /* MoneyManApp.swift */,
-				EB244B4E29DF61410076C712 /* Assets.xcassets */,
-				EB244B5029DF61410076C712 /* Preview Content */,
+				EBC97B6F29E7743C009000D1 /* Data */,
+				EBC97B6E29E77437009000D1 /* View */,
+				EBC97B6029E773CE009000D1 /* MoneyManApp.swift */,
+				EBC97B6429E773CF009000D1 /* Assets.xcassets */,
+				EBC97B6629E773CF009000D1 /* Preview Content */,
 			);
 			path = MoneyMan;
 			sourceTree = "<group>";
 		};
-		EB244B5029DF61410076C712 /* Preview Content */ = {
+		EBC97B6629E773CF009000D1 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				EB244B5129DF61410076C712 /* Preview Assets.xcassets */,
+				EBC97B6729E773CF009000D1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EB244B5C29DF77380076C712 /* Models */ = {
+		EBC97B6E29E77437009000D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EB244B5A29DF75D40076C712 /* Model.swift */,
+				EBC97B7629E77655009000D1 /* MainView.swift */,
+				EBC97B7829E77CEE009000D1 /* BankAccountView.swift */,
 			);
-			path = Models;
+			path = View;
 			sourceTree = "<group>";
 		};
-		EB244B5D29DF77470076C712 /* Controllers */ = {
+		EBC97B6F29E7743C009000D1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				EB244B5829DF75C50076C712 /* BankAccountController.swift */,
-				EB244B8029E07FAD0076C712 /* TransactionController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		EB244B5E29DF77640076C712 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				EB244B5F29DF77740076C712 /* BankAccount.swift */,
+				EBC97B7029E77449009000D1 /* Transaction.swift */,
+				EBC97B7229E774EE009000D1 /* BankAccount.swift */,
+				EBC97B7429E77553009000D1 /* Global.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		EB244B7D29E07EB70076C712 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EB244B4C29DF613F0076C712 /* BankAccountView.swift */,
-				EB244B7E29E07F290076C712 /* TransactionView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB244B4629DF613F0076C712 /* MoneyMan */ = {
+		EBC97B5C29E773CE009000D1 /* MoneyMan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB244B5529DF61420076C712 /* Build configuration list for PBXNativeTarget "MoneyMan" */;
+			buildConfigurationList = EBC97B6B29E773CF009000D1 /* Build configuration list for PBXNativeTarget "MoneyMan" */;
 			buildPhases = (
-				EB244B4329DF613F0076C712 /* Sources */,
-				EB244B4429DF613F0076C712 /* Frameworks */,
-				EB244B4529DF613F0076C712 /* Resources */,
+				EBC97B5929E773CE009000D1 /* Sources */,
+				EBC97B5A29E773CE009000D1 /* Frameworks */,
+				EBC97B5B29E773CE009000D1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -131,25 +112,25 @@
 			);
 			name = MoneyMan;
 			productName = MoneyMan;
-			productReference = EB244B4729DF613F0076C712 /* MoneyMan.app */;
+			productReference = EBC97B5D29E773CE009000D1 /* MoneyMan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EB244B3F29DF613F0076C712 /* Project object */ = {
+		EBC97B5529E773CE009000D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					EB244B4629DF613F0076C712 = {
+					EBC97B5C29E773CE009000D1 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
 			};
-			buildConfigurationList = EB244B4229DF613F0076C712 /* Build configuration list for PBXProject "MoneyMan" */;
+			buildConfigurationList = EBC97B5829E773CE009000D1 /* Build configuration list for PBXProject "MoneyMan" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -157,47 +138,46 @@
 				en,
 				Base,
 			);
-			mainGroup = EB244B3E29DF613F0076C712;
-			productRefGroup = EB244B4829DF613F0076C712 /* Products */;
+			mainGroup = EBC97B5429E773CE009000D1;
+			productRefGroup = EBC97B5E29E773CE009000D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB244B4629DF613F0076C712 /* MoneyMan */,
+				EBC97B5C29E773CE009000D1 /* MoneyMan */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EB244B4529DF613F0076C712 /* Resources */ = {
+		EBC97B5B29E773CE009000D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB244B5229DF61410076C712 /* Preview Assets.xcassets in Resources */,
-				EB244B4F29DF61410076C712 /* Assets.xcassets in Resources */,
+				EBC97B6829E773CF009000D1 /* Preview Assets.xcassets in Resources */,
+				EBC97B6529E773CF009000D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EB244B4329DF613F0076C712 /* Sources */ = {
+		EBC97B5929E773CE009000D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB244B5929DF75C50076C712 /* BankAccountController.swift in Sources */,
-				EB244B4D29DF613F0076C712 /* BankAccountView.swift in Sources */,
-				EB244B6029DF77740076C712 /* BankAccount.swift in Sources */,
-				EB244B4B29DF613F0076C712 /* MoneyManApp.swift in Sources */,
-				EB244B5B29DF75D40076C712 /* Model.swift in Sources */,
-				EB244B7F29E07F290076C712 /* TransactionView.swift in Sources */,
-				EB244B8129E07FAD0076C712 /* TransactionController.swift in Sources */,
+				EBC97B7929E77CEE009000D1 /* BankAccountView.swift in Sources */,
+				EBC97B7529E77553009000D1 /* Global.swift in Sources */,
+				EBC97B7129E77449009000D1 /* Transaction.swift in Sources */,
+				EBC97B7329E774EE009000D1 /* BankAccount.swift in Sources */,
+				EBC97B7729E77655009000D1 /* MainView.swift in Sources */,
+				EBC97B6129E773CE009000D1 /* MoneyManApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EB244B5329DF61410076C712 /* Debug */ = {
+		EBC97B6929E773CF009000D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -257,7 +237,7 @@
 			};
 			name = Debug;
 		};
-		EB244B5429DF61410076C712 /* Release */ = {
+		EBC97B6A29E773CF009000D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -311,7 +291,7 @@
 			};
 			name = Release;
 		};
-		EB244B5629DF61420076C712 /* Debug */ = {
+		EBC97B6C29E773CF009000D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -327,7 +307,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,7 +320,7 @@
 			};
 			name = Debug;
 		};
-		EB244B5729DF61420076C712 /* Release */ = {
+		EBC97B6D29E773CF009000D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -357,7 +336,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,25 +352,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB244B4229DF613F0076C712 /* Build configuration list for PBXProject "MoneyMan" */ = {
+		EBC97B5829E773CE009000D1 /* Build configuration list for PBXProject "MoneyMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB244B5329DF61410076C712 /* Debug */,
-				EB244B5429DF61410076C712 /* Release */,
+				EBC97B6929E773CF009000D1 /* Debug */,
+				EBC97B6A29E773CF009000D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB244B5529DF61420076C712 /* Build configuration list for PBXNativeTarget "MoneyMan" */ = {
+		EBC97B6B29E773CF009000D1 /* Build configuration list for PBXNativeTarget "MoneyMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB244B5629DF61420076C712 /* Debug */,
-				EB244B5729DF61420076C712 /* Release */,
+				EBC97B6C29E773CF009000D1 /* Debug */,
+				EBC97B6D29E773CF009000D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EB244B3F29DF613F0076C712 /* Project object */;
+	rootObject = EBC97B5529E773CE009000D1 /* Project object */;
 }

@@ -2,27 +2,20 @@
 //  BankAccount.swift
 //  MoneyMan
 //
-//  Created by Alikadev on 06.04.23.
+//  Created by Alikadev on 13.04.23.
 //
 
-import SwiftUI
+import Foundation
 
-struct TransactionDescriptor: Codable {
-	var date: Date
-	var name: String
-	var value: Float
-	var comment: String
+class BankAccount: ObservableObject, Codable, Identifiable
+{
+	public var name: String
+	public var transactions : [Transaction]
 	
-	init(name: String, value: Float, date : Date = Date.now, comment: String = "")
+	init(name: String,
+		 transactions: [Transaction] = [])
 	{
 		self.name = name
-		self.value = value
-		self.date = date
-		self.comment = comment
+		self.transactions = transactions
 	}
-}
-
-struct BankAccount: Codable {
-	var name: String
-	var transactions: [TransactionDescriptor] = [TransactionDescriptor(name: "Example", value: 2)]
 }
