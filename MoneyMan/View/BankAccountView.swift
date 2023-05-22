@@ -43,7 +43,7 @@ struct BankAccountView: View {
 									Spacer()
 									VStack(alignment: .trailing)
 									{
-										Text(String(format: "%0.2f $", transaction.value))
+										Text(String(format: "%0.2f "+get_currency(), transaction.value))
 										Text(transaction.date, style: .date)
 											.font(.system(size: dateSize, weight: .regular))
 									}
@@ -134,6 +134,14 @@ struct BankAccountView: View {
 							Spacer()
 							Image(systemName: "pencil")
 						}
+						Button()
+						{
+							popBankAccountRename.toggle()
+						} label: {
+							Text("Graph")
+							Spacer()
+							Image(systemName: "pencil")
+						}
 					} label: {
 						Image(systemName: "ellipsis")
 					}
@@ -187,6 +195,10 @@ struct BankAccountView: View {
 	}
 	func get_font_color() -> Color {
 		return (colorScheme == .light ? Color.black : Color.white)
+	}
+	func get_currency() -> String {
+		let locale = Locale.current
+		return locale.currencySymbol!
 	}
 }
 

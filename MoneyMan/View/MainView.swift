@@ -33,7 +33,7 @@ struct MainView: View {
 							Text(account.name)
 							Spacer()
 							Text(String(
-								format: "%0.2f $",
+								format: "%0.2f "+get_currency(),
 								get_sum_of_transaction(account.transactions)
 							))
 						}
@@ -61,7 +61,7 @@ struct MainView: View {
 							Text("Bank Account" + (global.bankAccounts.count > 1 ? "s" : ""))
 						}
 						.font(.system(size: headSize, weight: .bold))
-						Text("Sum: "+String(format: "%0.2f $", get_sum_of_all()))
+						Text("Sum: "+String(format: "%0.2f "+get_currency(), get_sum_of_all()))
 							.font(.system(size: fontSize))
 					}
 					.monospacedDigit()
@@ -147,6 +147,10 @@ struct MainView: View {
 			q += get_sum_of_transaction(ac.transactions)
 		}
 		return q
+	}
+	func get_currency() -> String {
+		let locale = Locale.current
+		return locale.currencySymbol!
 	}
 }
 
