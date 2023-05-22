@@ -18,7 +18,7 @@ struct BankAccountView: View {
 	@State var popBankAccountBadName = false
 	@State var popBankAccountAlreadyExist = false
 	
-	@State var newTransaction = false
+	@State var navGraphView = false
 	
 	@State var buffer = String()
 	
@@ -86,6 +86,9 @@ struct BankAccountView: View {
 					}
 				}
 				.padding()
+				.sheet(isPresented: $navGraphView) {
+					GraphView(bankAccount: bankAccount)
+				}
 			}
 			.toolbar
 			{
@@ -136,11 +139,11 @@ struct BankAccountView: View {
 						}
 						Button()
 						{
-							popBankAccountRename.toggle()
+							navGraphView.toggle()
 						} label: {
 							Text("Graph")
 							Spacer()
-							Image(systemName: "pencil")
+							Image(systemName: "chart.line.uptrend.xyaxis")
 						}
 					} label: {
 						Image(systemName: "ellipsis")

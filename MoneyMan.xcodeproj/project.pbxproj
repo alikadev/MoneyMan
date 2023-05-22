@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB987F9C2A1BE0C4002AD007 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB987F9B2A1BE0C4002AD007 /* GraphView.swift */; };
 		EBC97B6129E773CE009000D1 /* MoneyManApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B6029E773CE009000D1 /* MoneyManApp.swift */; };
 		EBC97B6529E773CF009000D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC97B6429E773CF009000D1 /* Assets.xcassets */; };
 		EBC97B6829E773CF009000D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC97B6729E773CF009000D1 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB987F9B2A1BE0C4002AD007 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		EBC97B5D29E773CE009000D1 /* MoneyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC97B6029E773CE009000D1 /* MoneyManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManApp.swift; sourceTree = "<group>"; };
 		EBC97B6429E773CF009000D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				EBC97B7829E77CEE009000D1 /* BankAccountView.swift */,
 				EBC97B7A29E83488009000D1 /* NewTransactionView.swift */,
 				EBC97B7C29E85778009000D1 /* TransactionView.swift */,
+				EB987F9B2A1BE0C4002AD007 /* GraphView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				EBC97B7929E77CEE009000D1 /* BankAccountView.swift in Sources */,
 				EBC97B7D29E85778009000D1 /* TransactionView.swift in Sources */,
+				EB987F9C2A1BE0C4002AD007 /* GraphView.swift in Sources */,
 				EBC97B7529E77553009000D1 /* Global.swift in Sources */,
 				EBC97B7129E77449009000D1 /* Transaction.swift in Sources */,
 				EBC97B7329E774EE009000D1 /* BankAccount.swift in Sources */,
