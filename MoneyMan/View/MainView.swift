@@ -65,6 +65,7 @@ struct MainView: View {
 							.font(.system(size: fontSize))
 					}
 					.monospacedDigit()
+					.padding()
 				}
 				
 				ToolbarItem(placement: .confirmationAction)

@@ -43,6 +43,7 @@ struct NewTransactionView: View {
 							}
 							bankAccount.transactions.append(
 								Transaction(
+									id: bankAccount.transactions.count,
 									name: name,
 									value: Float(valueBuffer) ?? 0,
 									date: date,

@@ -13,22 +13,14 @@ let shadowSize : CGFloat = 2
 let fontSize : CGFloat = 18
 let headSize : CGFloat = 22
 let dateSize : CGFloat = 12
+let traTypeSize : CGFloat = 10
 
 class GlobalState: ObservableObject {
-	@Published var bankAccounts : [BankAccount] = [
-		BankAccount(name: "Text1"),
-		BankAccount(name: "Text2", transactions: [
-			Transaction(name: "Test", value: 20),
-			Transaction(name: "Test", value: -4.5),
-			Transaction(name: "Test", value: 2.10),
-		]),
-		BankAccount(name: "Text3", transactions: [
-			Transaction(name: "Test", value: 2350),
-		])
-	]
+	@Published var bankAccounts : [BankAccount] = []
+	
 	struct keys
 	{
-		static let bankAccountList = "BankAccounts"
+		static let BALIST = "BankAccounts"
 	}
 	
 	public func save() -> Bool
@@ -36,9 +28,9 @@ class GlobalState: ObservableObject {
 		let defaults = UserDefaults.standard
 		
 		do {
-			let data = try JSONEncoder().encode(bankAccounts)
+			let accountData = try JSONEncoder().encode(bankAccounts)
 			
-			defaults.set(data, forKey: keys.bankAccountList)
+			defaults.set(accountData, forKey: keys.BALIST)
 			
 			return true
 		} catch {
@@ -51,11 +43,13 @@ class GlobalState: ObservableObject {
 		let defaults = UserDefaults.standard
 				
 		do {
-			if let savedData = defaults.object(forKey: keys.bankAccountList)
+			if let savedData = defaults.object(forKey: keys.BALIST)
 			{
-				bankAccounts = try JSONDecoder().decode([BankAccount].self, from: savedData as! Data)
-				return true
+				bankAccounts = try JSONDecoder().decode(
+						[BankAccount].self,
+						from: savedData as! Data)
 			}
+			return true
 		} catch {
 		}
 		return false

@@ -13,12 +13,15 @@ class Transaction: ObservableObject, Codable, Identifiable
 	public var value: Float
 	public var date: Date
 	public var comment: String
+	public var id: Int
 	
-	init(name: String,
+	init(id: Int,
+		 name: String,
 		 value: Float,
 		 date: Date = Date.now,
 		 comment: String = "")
 	{
+		self.id = id
 		self.name = name
 		self.value = value
 		self.date = date

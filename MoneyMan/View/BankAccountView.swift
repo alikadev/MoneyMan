@@ -35,7 +35,7 @@ struct BankAccountView: View {
 						{	transaction in
 							NavigationLink
 							{
-								TransactionView(transaction: transaction)
+								TransactionView(bankAccount: bankAccount, transaction: transaction)
 							} label: {
 								HStack
 								{
@@ -53,7 +53,13 @@ struct BankAccountView: View {
 								.padding()
 								.foregroundColor(get_font_color())
 								.background(Rectangle()
-									.foregroundColor(cBackground2)
+									.fill(LinearGradient(
+										gradient: Gradient(stops: [
+											Gradient.Stop(color: cBackground2, location: 0.5),
+											Gradient.Stop(color: transaction.value>0 ? .green : .red, location: 1)
+										]),
+										startPoint: .center,
+										endPoint: .trailing))
 									.cornerRadius(10)
 									.shadow(radius: shadowSize))
 							}
@@ -129,7 +135,7 @@ struct BankAccountView: View {
 							Image(systemName: "pencil")
 						}
 					} label: {
-						Image(systemName: "ellipsis.circle")
+						Image(systemName: "ellipsis")
 					}
 				}
 			}
@@ -190,9 +196,9 @@ struct BankAccountView_Previews: PreviewProvider {
 	static var previews: some View {
 		BankAccountView(bankAccount:
 							BankAccount(name: "Text2", transactions: [
-								Transaction(name: "Test", value: 20),
-								Transaction(name: "Test", value: -4.5),
-								Transaction(name: "Test", value: 2.10),
+								Transaction(id: 0, name: "Test", value: 20),
+								Transaction(id: 1, name: "Test", value: -4.5),
+								Transaction(id: 2, name: "Test", value: 2.10),
 							]))
 	}
 }

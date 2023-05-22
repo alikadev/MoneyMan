@@ -11,6 +11,7 @@ struct TransactionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.presentationMode) var presentationMode
 	@ObservedObject var global = globalState
+	@State var bankAccount : BankAccount
 	@State var transaction : Transaction
 	
 	@State var name = String()
@@ -82,6 +83,20 @@ struct TransactionView: View {
 					{
 						Text(name.isEmpty ? "Transaction" : name)
 							.font(.system(size: headSize, weight: .bold))
+					}
+				}
+				ToolbarItem(placement: .confirmationAction)
+				{
+					Button {
+						bankAccount.transactions = bankAccount.transactions.filter(
+							{$0.id != transaction.id})
+						if !global.save() {
+							print("Fail to save")
+						}
+						global.objectWillChange.send()
+						presentationMode.wrappedValue.dismiss()
+					} label: {
+						Image(systemName: "trash")
 					}
 				}
 			}
