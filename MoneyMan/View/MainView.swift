@@ -42,9 +42,14 @@ struct MainView: View {
 						.padding()
 						.foregroundColor(get_font_color())
 						.background(Rectangle()
-							.foregroundColor(cBackground2)
-							.cornerRadius(10)
-							.shadow(radius: shadowSize))
+								  .fill(LinearGradient(
+									  gradient: Gradient(stops: [
+										  Gradient.Stop(color: cBackground2, location: 0.5),
+										  Gradient.Stop(color: get_sum_of_transaction(account.transactions) > 0 ? .green : .red, location: 1)
+									  ]),
+									  startPoint: .center,
+									  endPoint: .trailing))
+								  .cornerRadius(10))
 					}
 				}
 				.padding()

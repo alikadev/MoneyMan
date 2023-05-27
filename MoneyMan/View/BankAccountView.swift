@@ -109,8 +109,7 @@ struct BankAccountView: View {
 							.font(.system(size: headSize, weight: .bold))
 						HStack
 						{
-							Text(String(bankAccount.transactions.count))
-							Text("transaction" + (bankAccount.transactions.count > 1 ? "s" : ""))
+							Text(String(format: "Sum: %0.2f "+get_currency(),get_sum_of_transaction(bankAccount.transactions)))
 						}
 					}
 					.monospacedDigit()
@@ -202,6 +201,13 @@ struct BankAccountView: View {
 	func get_currency() -> String {
 		let locale = Locale.current
 		return locale.currencySymbol!
+	}
+	func get_sum_of_transaction(_ transactions: [Transaction]) -> Float {
+		var q = Float()
+		for tr in transactions {
+			q += tr.value
+		}
+		return q
 	}
 }
 
