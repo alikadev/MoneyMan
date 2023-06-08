@@ -24,14 +24,16 @@ struct GraphView: View {
 	let ctrl = GraphController()
     var body: some View {
 		Chart {
-			ForEach(bankAccount.transactions.sorted(by: {
-				$0.date > $1.date }))
+			ForEach(bankAccount.transactions)
 			{ transaction in
+				PointMark(x: .value("Month", transaction.date),
+						  y: .value("Money", get_sum_of_transaction_until(bankAccount.transactions, transaction)))
+				.symbolSize(12)
+				.opacity(0.75)
 				LineMark(x: .value("Month", transaction.date),
 						 y: .value("Money", get_sum_of_transaction_until(bankAccount.transactions, transaction)))
 				.interpolationMethod(.monotone)
-				PointMark(x: .value("Month", transaction.date),
-						  y: .value("Money", get_sum_of_transaction_until(bankAccount.transactions, transaction)))
+				.symbolSize(10)
 			}
 		}
 		.padding()
@@ -39,7 +41,7 @@ struct GraphView: View {
 	
 	func get_sum_of_transaction_until(_ transactions: [Transaction], _ transaction: Transaction) -> Float {
 		var q = Float()
-		for tr in transactions {
+		for tr in transactions.reversed() {
 			q += tr.value
 			if transaction.id == tr.id { break }
 		}
@@ -51,9 +53,9 @@ struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
         GraphView(bankAccount:
 					BankAccount(name: "Text2", transactions: [
-							  Transaction(id: 0, name: "Test", value: 20),
-							  Transaction(id: 1, name: "Test", value: -4.5),
-							  Transaction(id: 2, name: "Test", value: 2.10),
+						Transaction(id: 2, name: "Test", value: 2.10, date: Date.now+10),
+						Transaction(id: 0, name: "Test", value: 20, date: Date.now),
+						Transaction(id: 1, name: "Test", value: -4.5, date: Date.now-5),
 						  ]))
     }
 }

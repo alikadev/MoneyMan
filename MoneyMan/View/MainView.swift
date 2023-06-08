@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
 	@Environment(\.colorScheme) var colorScheme
-	@ObservedObject var global = globalState
+	@ObservedObject var global = Global.shared
 	
 	@State var popNewBankAccount = false
 	@State var popBankAccountBadName = false
@@ -24,7 +24,7 @@ struct MainView: View {
 			{
 				VStack
 				{
-					ForEach(global.bankAccounts)
+					ForEach(global.account.bankAccounts)
 					{	account in
 						NavigationLink
 						{
@@ -42,19 +42,18 @@ struct MainView: View {
 						.padding()
 						.foregroundColor(get_font_color())
 						.background(Rectangle()
-								  .fill(LinearGradient(
-									  gradient: Gradient(stops: [
-										  Gradient.Stop(color: cBackground2, location: 0.5),
-										  Gradient.Stop(color: get_sum_of_transaction(account.transactions) > 0 ? .green : .red, location: 1)
-									  ]),
-									  startPoint: .center,
-									  endPoint: .trailing))
-								  .cornerRadius(10))
+							.fill(LinearGradient(
+								gradient: Gradient(stops: [
+									Gradient.Stop(color: cBackground2, location: 0.5),
+									Gradient.Stop(color: get_sum_of_transaction(account.transactions) > 0 ? .green : .red, location: 1)
+								]),
+								startPoint: .center,
+								endPoint: .trailing))
+								.cornerRadius(10))
 					}
 				}
 				.padding()
 			}
-			
 			.toolbar
 			{
 				ToolbarItem(placement: .principal)
@@ -62,8 +61,8 @@ struct MainView: View {
 					VStack {
 						HStack {
 							
-							Text(String(global.bankAccounts.count))
-							Text("Bank Account" + (global.bankAccounts.count > 1 ? "s" : ""))
+							Text(String(global.account.bankAccounts.count))
+							Text("Bank Account" + (global.account.bankAccounts.count > 1 ? "s" : ""))
 						}
 						.font(.system(size: headSize, weight: .bold))
 						Text("Sum: "+String(format: "%0.2f "+get_currency(), get_sum_of_all()))
@@ -84,16 +83,13 @@ struct MainView: View {
 				}
 			}
 		}
-		.onAppear(perform: {
-			if !global.load() {
-				global.bankAccounts = []
-			}
-		})
-		.onDisappear(perform: {
-			if !global.save() {
-				print("Fail to save")
-			}
-		})
+		.onAppear() {
+			global.loadAccount()
+			global.objectWillChange.send()
+		}
+		.onDisappear() {
+			global.saveAccount()
+		}
 		.alert(
 			"Create bank account",
 			isPresented: $popNewBankAccount,
@@ -105,15 +101,13 @@ struct MainView: View {
 						return
 					}
 					
-					if !global.bankAccounts.filter({$0.name == buffer}).isEmpty {
+					if !global.account.bankAccounts.filter({$0.name == buffer}).isEmpty {
 						popBankAccountAlreadyExist = true
 						return
 					}
 					
-					global.bankAccounts.append(BankAccount(name: buffer))
-					if !global.save() {
-						print("Fail to save")
-					}
+					global.account.bankAccounts.append(BankAccount(name: buffer))
+					global.saveAccount()
 				}
 				Button("Cancel",
 					   role: .cancel,
@@ -148,7 +142,7 @@ struct MainView: View {
 	}
 	func get_sum_of_all() -> Float {
 		var q = Float()
-		for ac in global.bankAccounts {
+		for ac in global.account.bankAccounts {
 			q += get_sum_of_transaction(ac.transactions)
 		}
 		return q

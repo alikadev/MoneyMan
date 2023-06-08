@@ -18,4 +18,26 @@ class BankAccount: ObservableObject, Codable, Identifiable
 		self.name = name
 		self.transactions = transactions
 	}
+	
+	func insert(transaction: Transaction)
+	{
+		transactions.append(transaction)
+		// Re-sort transaction by date
+		transactions = transactions.sorted {
+			$0.date > $1.date
+		}
+	}
+	
+	func remove(transaction: Transaction)
+	{
+		transactions = transactions.filter({
+			$0.id != transaction.id
+		})
+	}
+	
+	func contrains(transaction: Transaction) -> Bool {
+		return !transactions.filter({
+			$0.id == transaction.id
+		}).isEmpty
+	}
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct TransactionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.presentationMode) var presentationMode
-	@ObservedObject var global = globalState
+	@ObservedObject var global = Global.shared
 	@State var bankAccount : BankAccount
 	@State var transaction : Transaction
 	
@@ -47,9 +47,8 @@ struct TransactionView: View {
 							transaction.date = date
 							transaction.comment = comment
 							
-							if !global.save() {
-								print("Fail to save")
-							}
+							global.saveAccount()
+							
 							global.objectWillChange.send()
 							presentationMode.wrappedValue.dismiss()
 						}
@@ -88,11 +87,10 @@ struct TransactionView: View {
 				ToolbarItem(placement: .confirmationAction)
 				{
 					Button {
-						bankAccount.transactions = bankAccount.transactions.filter(
-							{$0.id != transaction.id})
-						if !global.save() {
-							print("Fail to save")
-						}
+						bankAccount.remove(transaction: transaction)
+						
+						global.saveAccount()
+						
 						global.objectWillChange.send()
 						presentationMode.wrappedValue.dismiss()
 					} label: {

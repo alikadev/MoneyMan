@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB7FEC312A2F516000DFDD9E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FEC302A2F516000DFDD9E /* Account.swift */; };
+		EB7FEC332A2F51C300DFDD9E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FEC322A2F51C300DFDD9E /* State.swift */; };
+		EB7FEC352A2F524000DFDD9E /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FEC342A2F524000DFDD9E /* Disk.swift */; };
+		EB7FEC372A2F52B000DFDD9E /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FEC362A2F52B000DFDD9E /* Errors.swift */; };
 		EB987F9C2A1BE0C4002AD007 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB987F9B2A1BE0C4002AD007 /* GraphView.swift */; };
 		EBC97B6129E773CE009000D1 /* MoneyManApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC97B6029E773CE009000D1 /* MoneyManApp.swift */; };
 		EBC97B6529E773CF009000D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC97B6429E773CF009000D1 /* Assets.xcassets */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB7FEC302A2F516000DFDD9E /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		EB7FEC322A2F51C300DFDD9E /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		EB7FEC342A2F524000DFDD9E /* Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
+		EB7FEC362A2F52B000DFDD9E /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EB987F9B2A1BE0C4002AD007 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		EBC97B5D29E773CE009000D1 /* MoneyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC97B6029E773CE009000D1 /* MoneyManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManApp.swift; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 				EBC97B7029E77449009000D1 /* Transaction.swift */,
 				EBC97B7229E774EE009000D1 /* BankAccount.swift */,
 				EBC97B7429E77553009000D1 /* Global.swift */,
+				EB7FEC302A2F516000DFDD9E /* Account.swift */,
+				EB7FEC322A2F51C300DFDD9E /* State.swift */,
+				EB7FEC342A2F524000DFDD9E /* Disk.swift */,
+				EB7FEC362A2F52B000DFDD9E /* Errors.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -174,14 +186,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7FEC352A2F524000DFDD9E /* Disk.swift in Sources */,
 				EBC97B7929E77CEE009000D1 /* BankAccountView.swift in Sources */,
 				EBC97B7D29E85778009000D1 /* TransactionView.swift in Sources */,
 				EB987F9C2A1BE0C4002AD007 /* GraphView.swift in Sources */,
+				EB7FEC332A2F51C300DFDD9E /* State.swift in Sources */,
 				EBC97B7529E77553009000D1 /* Global.swift in Sources */,
 				EBC97B7129E77449009000D1 /* Transaction.swift in Sources */,
+				EB7FEC372A2F52B000DFDD9E /* Errors.swift in Sources */,
 				EBC97B7329E774EE009000D1 /* BankAccount.swift in Sources */,
 				EBC97B7729E77655009000D1 /* MainView.swift in Sources */,
 				EBC97B7B29E83488009000D1 /* NewTransactionView.swift in Sources */,
+				EB7FEC312A2F516000DFDD9E /* Account.swift in Sources */,
 				EBC97B6129E773CE009000D1 /* MoneyManApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

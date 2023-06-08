@@ -15,47 +15,53 @@ let headSize : CGFloat = 22
 let dateSize : CGFloat = 12
 let traTypeSize : CGFloat = 10
 
-class GlobalState: ObservableObject {
-	@Published var bankAccounts : [BankAccount] = []
+func printError(_ message: String) -> Void {
+	print("ERROR:", message)
+}
+
+class Global: ObservableObject
+{
+	private var ACCOUNT_KEY = "ACCOUNTS"
+	@Published var account = Account()
+	public static let shared = Global()
 	
-	struct keys
-	{
-		static let BALIST = "BankAccounts"
+	private init() {
 	}
 	
-	public func save() -> Bool
+	func saveAccount()
+	{
+		do {
+			try Disk.save(account, key: ACCOUNT_KEY)
+		} catch Errors.DiskError(let error) {
+			printError(error)
+		} catch {
+			printError("Unreachable")
+		}
+	}
+	
+	func loadAccount()
 	{
 		let defaults = UserDefaults.standard
 		
 		do {
-			let accountData = try JSONEncoder().encode(bankAccounts)
-			
-			defaults.set(accountData, forKey: keys.BALIST)
-			
-			return true
-		} catch {
-			return false
-		}
-	}
-	
-	public func load() -> Bool
-	{
-		let defaults = UserDefaults.standard
-				
-		do {
-			if let savedData = defaults.object(forKey: keys.BALIST)
+			if let savedData = defaults.object(forKey: "BankAccounts")
 			{
-				bankAccounts = try JSONDecoder().decode(
-						[BankAccount].self,
-						from: savedData as! Data)
+				account.bankAccounts = try JSONDecoder().decode(
+					[BankAccount].self,
+					from: savedData as! Data)
+				saveAccount()
+				defaults.removeObject(forKey: "BankAccounts")
+				print("DEBUG: Loaded from old data")
+			} else {
+				account = try Disk.load(type: Account.self, key: ACCOUNT_KEY) as! Account
 			}
-			return true
+		} catch Errors.DiskError(let error) {
+			printError(error)
 		} catch {
+			print("Unreachable")
 		}
-		return false
 	}
 }
-var globalState = GlobalState()
 
 extension String {
 	var isAlphanumeric: Bool {

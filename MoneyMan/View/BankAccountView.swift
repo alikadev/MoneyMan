@@ -10,7 +10,7 @@ import SwiftUI
 struct BankAccountView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.presentationMode) var presentationMode
-	@ObservedObject var global = globalState
+	@ObservedObject var global = Global.shared
 	@ObservedObject var bankAccount : BankAccount
 	
 	@State var popBankAccountRename = false
@@ -30,8 +30,7 @@ struct BankAccountView: View {
 				{
 					VStack
 					{
-						ForEach(bankAccount.transactions.sorted(by: {
-							$0.date > $1.date }))
+						ForEach(bankAccount.transactions)
 						{	transaction in
 							NavigationLink
 							{
@@ -118,10 +117,11 @@ struct BankAccountView: View {
 				{
 					Menu {
 						Button {
-							global.bankAccounts = global.bankAccounts.filter({$0.name != bankAccount.name})
-							if !global.save() {
-								print("Fail to save")
-							}
+							global.account.bankAccounts = global.account.bankAccounts.filter({$0.name != bankAccount.name})
+							
+							global.saveAccount()
+							global.objectWillChange.send()
+							
 							presentationMode.wrappedValue.dismiss()
 						} label: {
 							Text("Delete bank account")
@@ -162,16 +162,16 @@ struct BankAccountView: View {
 						return
 					}
 					
-					if !global.bankAccounts.filter({$0.name == buffer}).isEmpty {
+					if !global.account.bankAccounts.filter({$0.name == buffer}).isEmpty {
 						popBankAccountAlreadyExist = true
 						return
 					}
 					
 					bankAccount.name = buffer
-					if !global.save() {
-						print("Fail to save")
-					}
+					
+					global.saveAccount()
 					global.objectWillChange.send()
+					
 					presentationMode.wrappedValue.dismiss()
 				}
 				Button("Cancel",
@@ -212,7 +212,7 @@ struct BankAccountView: View {
 }
 
 struct BankAccountView_Previews: PreviewProvider {
-	@ObservedObject var global = globalState
+	@ObservedObject var global = Global.shared
 	
 	static var previews: some View {
 		BankAccountView(bankAccount:

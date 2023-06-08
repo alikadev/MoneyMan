@@ -10,7 +10,7 @@ import SwiftUI
 struct NewTransactionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.presentationMode) var presentationMode
-	@ObservedObject var global = globalState
+	@ObservedObject var global = Global.shared
 	@ObservedObject var bankAccount : BankAccount
 	
 	@State var name = String()
@@ -41,17 +41,16 @@ struct NewTransactionView: View {
 								badNumberFormat.toggle()
 								return
 							}
-							bankAccount.transactions.append(
-								Transaction(
-									id: bankAccount.transactions.count,
-									name: name,
-									value: Float(valueBuffer) ?? 0,
-									date: date,
-									comment: comment))
-							if !global.save() {
-								print("Fail to save")
-							}
-							bankAccount.objectWillChange.send()
+							bankAccount.insert(transaction: Transaction(
+								id: bankAccount.transactions.count,
+								name: name,
+								value: Float(valueBuffer) ?? 0,
+								date: date,
+								comment: comment))
+							
+							global.saveAccount()
+							
+							global.objectWillChange.send()
 							presentationMode.wrappedValue.dismiss()
 						}
 						.font(.system(size: fontSize, weight: .bold))
